@@ -18,7 +18,7 @@ SELECT officeCode from classicmodels.offices where country = 'UK');
 
 -- 6.	In which country does George Vanauf works in.
 SELECT country from classicmodels.offices where officeCode in(
-SELECT officeCode from classicmodels.employees where officeCode = 3);
+SELECT officeCode from classicmodels.employees where firstName ='George');
 
 -- 7.	Find Email address of all employee who works in USA.
 SELECT email from classicmodels.employees where officeCode in (
@@ -29,11 +29,11 @@ SELECT customerName, phone , addressLine1 from classicmodels.customers where cus
 SELECT customerNumber from classicmodels.orders where status = 'In Proc');
 -- 9.	Find total No of orders which is product of Ducati.
 SELECT COUNT(*) FROM classicmodels.orderdetails where productCode in(
-SELECT productCode FROM classicmodels.products where productname = '1982 Ducati 996 R');
+SELECT productCode FROM classicmodels.products where productname like "%Ducati%");
 
 -- 10.	List all order of Ford parts.
 SELECT * FROM classicmodels.orderdetails where productCode in (
-SELECT productcode from classicmodels.products where productName = '%ford%');
+SELECT productcode from classicmodels.products where productName like "%ford%");
 
 -- Find first customer who placed order.
 select * from classicmodels.customers where customerNumber = (
